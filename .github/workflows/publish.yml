@@ -8,23 +8,21 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v3
+        with:
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
-
-      - name: Install build package
-        run: pip install build twine
-
-      - name: Build distribution
-        run: python -m build
-
-      - name: Publish distribution
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
         run: |
-          python -m twine upload dist/*
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}

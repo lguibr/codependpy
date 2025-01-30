@@ -183,4 +183,4 @@ Feel free to modify and share—just give credit where it’s due!
 
 **Happy partial extraction!**  
 
-If you have any feedback or issues, open an [issue on GitHub](https://github.com/your-repo/codependpy/issues) or submit a pull request.  
+If you have any feedback or issues, open an [issue on GitHub](https://github.com/lguibr/codependpy/issues) or submit a pull request.  

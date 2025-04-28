@@ -6,6 +6,9 @@
 [![License](https://img.shields.io/pypi/l/codependpy.svg)](LICENSE)
 
 ---
+<p align="center">
+  <img src="bitmap.png" alt="Logo" width="300"/>
+</p>
 
 ## Overview
 
